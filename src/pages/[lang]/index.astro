@@ -48,60 +48,69 @@ const categories = [...new Set(symbols.map((s) => s.category))];
                 </div>
 
                 {
-                    categories.map((category) => (
-                        <section
-                            id={`category-${category}`}
-                            class="scroll-mt-20"
-                        >
-                            <h3 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-6 border-b border-slate-100 pb-2">
-                                {t(`nav.${category}` as any)}
-                            </h3>
-                            <div class="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-3">
-                                {symbols
-                                    .filter((s) => s.category === category)
-                                    .map((symbol) => (
-                                        <button
-                                            data-symbol-id={symbol.id}
-                                            class="symbol-btn group flex flex-col items-center justify-center p-3 bg-white border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition-all relative overflow-hidden active:scale-95 touch-manipulation"
-                                            aria-label={
-                                                symbol.label[
-                                                    lang as "en" | "id"
-                                                ]
-                                            }
-                                        >
-                                            <img
-                                                src={`/symbols/${symbol.id}.svg`}
-                                                alt=""
-                                                class="w-10 h-10 mb-1.5 opacity-70 group-hover:opacity-100 transition-opacity"
-                                            />
-                                            <span class="text-[9px] text-center font-medium text-slate-500 leading-tight group-hover:text-blue-600 transition-colors">
-                                                {
-                                                    symbol.label[
-                                                        lang as "en" | "id"
-                                                    ]
-                                                }
-                                            </span>
-                                            <div class="check-mark absolute top-1 right-1 hidden">
-                                                <div class="w-4 h-4 bg-blue-600 rounded-full flex items-center justify-center">
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        viewBox="0 0 20 20"
-                                                        fill="currentColor"
-                                                        class="w-3 h-3 text-white"
-                                                    >
-                                                        <path
-                                                            fill-rule="evenodd"
-                                                            d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
-                                                            clip-rule="evenodd"
-                                                        />
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                        </button>
-                                    ))}
-                            </div>
-                        </section>
-                    ))
+                    (() => {
+                        let globalIndex = 0;
+                        return categories.map((category) => (
+                            <section
+                                id={`category-${category}`}
+                                class="scroll-mt-20"
+                            >
+                                <h3 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-6 border-b border-slate-100 pb-2">
+                                    {t(`nav.${category}` as any)}
+                                </h3>
+                                <div class="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-3">
+                                    {symbols
+                                        .filter((s) => s.category === category)
+                                        .map((symbol) => {
+                                            const currentIndex = globalIndex++;
+                                            return (
+                                                <button
+                                                    data-symbol-id={symbol.id}
+                                                    class="symbol-btn group flex flex-col items-center justify-center p-3 bg-white border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition-all relative overflow-hidden active:scale-95 touch-manipulation"
+                                                    aria-label={
+                                                        symbol.label[
+                                                            lang as "en" | "id"
+                                                        ]
+                                                    }
+                                                >
+                                                    <img
+                                                        src={`/symbols/${symbol.id}.svg`}
+                                                        alt=""
+                                                        width="40"
+                                                        height="40"
+                                                        loading={currentIndex < 17 ? "eager" : "lazy"}
+                                                        class="w-10 h-10 mb-1.5 opacity-70 group-hover:opacity-100 transition-opacity"
+                                                    />
+                                                    <span class="text-[9px] text-center font-medium text-slate-500 leading-tight group-hover:text-blue-600 transition-colors">
+                                                        {
+                                                            symbol.label[
+                                                                lang as "en" | "id"
+                                                            ]
+                                                        }
+                                                    </span>
+                                                    <div class="check-mark absolute top-1 right-1 hidden">
+                                                        <div class="w-4 h-4 bg-blue-600 rounded-full flex items-center justify-center">
+                                                            <svg
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                viewBox="0 0 20 20"
+                                                                fill="currentColor"
+                                                                class="w-3 h-3 text-white"
+                                                            >
+                                                                <path
+                                                                    fill-rule="evenodd"
+                                                                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                                                                    clip-rule="evenodd"
+                                                                />
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            );
+                                        })}
+                                </div>
+                            </section>
+                        ));
+                    })()
                 }
             </div>
 

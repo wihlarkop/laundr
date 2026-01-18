@@ -6,6 +6,14 @@
             "en": "Machine Wash, Normal",
             "id": "Cuci dengan mesin, normal"
         },
+        "description": {
+            "en": "Wash using standard settings and agitation.",
+            "id": "Cuci menggunakan pengaturan dasar dan sirkulasi normal."
+        },
+        "tip": {
+            "en": "Ideal for cotton, linen, and durable synthetic fabrics.",
+            "id": "Ideal untuk katun, linen, dan kain sintetis yang tahan lama."
+        },
         "rules": {
             "allow": {
                 "en": [
@@ -32,6 +40,14 @@
             "en": "Machine Wash, Cold",
             "id": "Cuci dengan mesin, air dingin"
         },
+        "description": {
+            "en": "Wash with water temperature not exceeding 30\u00b0C.",
+            "id": "Cuci dengan suhu air tidak melebihi 30\u00b0C."
+        },
+        "tip": {
+            "en": "Bright colors and dark colors stay vibrant longer in cold water.",
+            "id": "Warna cerah dan gelap tetap tahan lama dalam air dingin."
+        },
         "rules": {
             "allow": {
                 "en": [
@@ -43,10 +59,10 @@
             },
             "condition": {
                 "en": [
-                    "Water temperature not exceeding 30°C (85°F)"
+                    "Water temperature not exceeding 30\u00b0C (85\u00b0F)"
                 ],
                 "id": [
-                    "Suhu air tidak melebihi 30°C (85°F)"
+                    "Suhu air tidak melebihi 30\u00b0C (85\u00b0F)"
                 ]
             }
         }
@@ -58,6 +74,14 @@
             "en": "Machine Wash, Warm",
             "id": "Cuci dengan mesin, air hangat"
         },
+        "description": {
+            "en": "Wash with water temperature not exceeding 40\u00b0C.",
+            "id": "Cuci dengan suhu air tidak melebihi 40\u00b0C."
+        },
+        "tip": {
+            "en": "Warm water strikes a balance between cleaning power and fabric care.",
+            "id": "Air hangat menyeimbangkan daya bersih dan perawatan kain."
+        },
         "rules": {
             "allow": {
                 "en": [
@@ -69,10 +93,10 @@
             },
             "condition": {
                 "en": [
-                    "Water temperature not exceeding 40°C (105°F)"
+                    "Water temperature not exceeding 40\u00b0C (105\u00b0F)"
                 ],
                 "id": [
-                    "Suhu air tidak melebihi 40°C (105°F)"
+                    "Suhu air tidak melebihi 40\u00b0C (105\u00b0F)"
                 ]
             }
         }
@@ -84,31 +108,13 @@
             "en": "Machine Wash, Hot",
             "id": "Cuci dengan mesin, air panas"
         },
-        "rules": {
-            "allow": {
-                "en": [
-                    "Machine wash"
-                ],
-                "id": [
-                    "Cuci dengan mesin"
-                ]
-            },
-            "condition": {
-                "en": [
-                    "Water temperature not exceeding 50°C (120°F)"
-                ],
-                "id": [
-                    "Suhu air tidak melebihi 50°C (120°F)"
-                ]
-            }
-        }
-    },
-    {
-        "id": "machine-wash-very-hot",
-        "category": "wash",
-        "label": {
-            "en": "Machine Wash, Very Hot",
-            "id": "Cuci dengan mesin, air sangat panas"
+        "description": {
+            "en": "Wash with water temperature not exceeding 50\u00b0C.",
+            "id": "Cuci dengan suhu air tidak melebihi 50\u00b0C."
+        },
+        "tip": {
+            "en": "Hot water is best for removing oils and deep stains.",
+            "id": "Air panas sangat baik untuk menghilangkan minyak dan noda membandel."
         },
         "rules": {
             "allow": {
@@ -121,20 +127,28 @@
             },
             "condition": {
                 "en": [
-                    "Water temperature not exceeding 60°C (140°F)"
+                    "Water temperature not exceeding 50\u00b0C (120\u00b0F)"
                 ],
                 "id": [
-                    "Suhu air tidak melebihi 60°C (140°F)"
+                    "Suhu air tidak melebihi 50\u00b0C (120\u00b0F)"
                 ]
             }
         }
     },
     {
-        "id": "machine-wash-delicate",
+        "id": "machine-wash-very-hot",
         "category": "wash",
         "label": {
-            "en": "Machine Wash, Delicate",
-            "id": "Cuci dengan mesin, mode lembut"
+            "en": "Machine Wash, Very Hot",
+            "id": "Cuci dengan mesin, air sangat panas"
+        },
+        "description": {
+            "en": "Wash with water temperature not exceeding 60\u00b0C.",
+            "id": "Cuci dengan suhu air tidak melebihi 60\u00b0C."
+        },
+        "tip": {
+            "en": "Very hot water is highly effective for sanitizing items like towels and bedsheets.",
+            "id": "Air sangat panas sangat efektif untuk mensanitasi handuk dan sprei."
         },
         "rules": {
             "allow": {
@@ -162,6 +176,14 @@
             "en": "Machine Wash, Permanent Press",
             "id": "Cuci dengan mesin, mode permanent press"
         },
+        "description": {
+            "en": "Wash using permanent press cycle with cool-down rinse.",
+            "id": "Cuci menggunakan siklus permanent press dengan bilasan dingin."
+        },
+        "tip": {
+            "en": "Prevents wrinkles in synthetic blends and dress shirts.",
+            "id": "Mencegah kusut pada kain campuran sintetis dan kemeja formal."
+        },
         "rules": {
             "allow": {
                 "en": [
@@ -187,6 +209,14 @@
         "label": {
             "en": "Hand Wash",
             "id": "Cuci dengan tangan"
+        },
+        "description": {
+            "en": "Wash gently by hand in lukewarm water with mild detergent.",
+            "id": "Cuci dengan lembut menggunakan tangan dalam air hangat dengan detergen ringan."
+        },
+        "tip": {
+            "en": "Essential for delicate fabrics like silk, wool, and embellished garments.",
+            "id": "Penting untuk kain halus seperti sutra, wol, dan pakaian berhias."
         },
         "rules": {
             "allow": {
@@ -214,6 +244,14 @@
             "en": "Do Not Machine Wash",
             "id": "Jangan cuci dengan mesin"
         },
+        "description": {
+            "en": "This garment must not be washed in a washing machine.",
+            "id": "Pakaian ini tidak boleh dicuci dengan mesin cuci."
+        },
+        "tip": {
+            "en": "Usually requires hand washing or professional dry cleaning only.",
+            "id": "Biasanya memerlukan pencucian tangan atau dry cleaning profesional saja."
+        },
         "rules": {
             "forbid": {
                 "en": [
@@ -232,6 +270,14 @@
             "en": "Any Bleach Allowed",
             "id": "Boleh menggunakan pemutih"
         },
+        "description": {
+            "en": "Any commercially available bleach may be used.",
+            "id": "Semua jenis pemutih yang tersedia di pasaran boleh digunakan."
+        },
+        "tip": {
+            "en": "Use bleach sparingly to prevent fabric thinning over time.",
+            "id": "Gunakan pemutih secukupnya untuk mencegah penipisan kain seiring waktu."
+        },
         "rules": {
             "allow": {
                 "en": [
@@ -249,6 +295,14 @@
         "label": {
             "en": "Non-Chlorine Bleach Only",
             "id": "Hanya pemutih tanpa klorin"
+        },
+        "description": {
+            "en": "Only non-chlorine, color-safe bleach should be used.",
+            "id": "Hanya gunakan pemutih tanpa klorin yang aman untuk warna."
+        },
+        "tip": {
+            "en": "Oxygen-based bleaches are great for maintaining brightness without damage.",
+            "id": "Pemutih berbasis oksigen sangat baik untuk menjaga kecerahan tanpa merusak kain."
         },
         "rules": {
             "allow": {
@@ -276,6 +330,14 @@
             "en": "Do Not Bleach",
             "id": "Jangan gunakan pemutih"
         },
+        "description": {
+            "en": "No bleach of any kind should be used on this garment.",
+            "id": "Jangan gunakan jenis pemutih apa pun pada pakaian ini."
+        },
+        "tip": {
+            "en": "Bleach can permanently yellow or weaken these specific fibers.",
+            "id": "Pemutih dapat membuat serat kain ini menguning atau rusak secara permanen."
+        },
         "rules": {
             "forbid": {
                 "en": [
@@ -293,6 +355,14 @@
         "label": {
             "en": "Tumble Dry, Normal",
             "id": "Keringkan dengan mesin pengering, normal"
+        },
+        "description": {
+            "en": "Dry in a tumble dryer at a normal heat setting.",
+            "id": "Keringkan dalam mesin pengering dengan pengaturan panas normal."
+        },
+        "tip": {
+            "en": "Remove items while slightly damp to minimize static and wrinkles.",
+            "id": "Angkat pakaian selagi agak lembap untuk meminimalkan statis dan kusut."
         },
         "rules": {
             "allow": {
@@ -320,6 +390,14 @@
             "en": "Tumble Dry, Low Heat",
             "id": "Keringkan dengan mesin pengering, panas rendah"
         },
+        "description": {
+            "en": "Dry in a tumble dryer at a low heat setting.",
+            "id": "Keringkan dalam mesin pengering dengan pengaturan panas rendah."
+        },
+        "tip": {
+            "en": "Low heat is essential for preventing shrinkage in synthetic blends.",
+            "id": "Panas rendah penting untuk mencegah penyusutan pada kain campuran sintetis."
+        },
         "rules": {
             "allow": {
                 "en": [
@@ -345,6 +423,14 @@
         "label": {
             "en": "Tumble Dry, Medium Heat",
             "id": "Keringkan dengan mesin pengering, panas sedang"
+        },
+        "description": {
+            "en": "Dry in a tumble dryer at a medium heat setting.",
+            "id": "Keringkan dalam mesin pengering dengan pengaturan panas sedang."
+        },
+        "tip": {
+            "en": "Good for most everyday fabrics without risking damage from high heat.",
+            "id": "Baik untuk sebagian besar kain sehari-hari tanpa risiko kerusakan dari panas tinggi."
         },
         "rules": {
             "allow": {
@@ -372,6 +458,14 @@
             "en": "Tumble Dry, High Heat",
             "id": "Keringkan dengan mesin pengering, panas tinggi"
         },
+        "description": {
+            "en": "Dry in a tumble dryer at a high heat setting.",
+            "id": "Keringkan dalam mesin pengering dengan pengaturan panas tinggi."
+        },
+        "tip": {
+            "en": "Best for sturdy fabrics like towels, heavy cotton, and denim.",
+            "id": "Terbaik untuk kain kuat seperti handuk, katun tebal, dan denim."
+        },
         "rules": {
             "allow": {
                 "en": [
@@ -397,6 +491,14 @@
         "label": {
             "en": "Tumble Dry, Delicate",
             "id": "Keringkan dengan mesin pengering, mode lembut"
+        },
+        "description": {
+            "en": "Dry using delicate or gentle cycle with reduced agitation.",
+            "id": "Keringkan menggunakan siklus halus atau lembut dengan putaran yang dikurangi."
+        },
+        "tip": {
+            "en": "Protects fragile fabrics from damage during machine drying.",
+            "id": "Melindungi kain rapuh dari kerusakan saat pengeringan mesin."
         },
         "rules": {
             "allow": {
@@ -424,6 +526,14 @@
             "en": "Tumble Dry, Permanent Press",
             "id": "Keringkan dengan mesin pengering, mode permanent press"
         },
+        "description": {
+            "en": "Dry using permanent press cycle with cool-down period.",
+            "id": "Keringkan menggunakan siklus permanent press dengan periode pendinginan."
+        },
+        "tip": {
+            "en": "Reduces wrinkles in wrinkle-resistant and synthetic fabrics.",
+            "id": "Mengurangi kusut pada kain anti-kusut dan sintetis."
+        },
         "rules": {
             "allow": {
                 "en": [
@@ -449,6 +559,14 @@
         "label": {
             "en": "Tumble Dry, No Heat",
             "id": "Keringkan dengan mesin pengering, tanpa panas"
+        },
+        "description": {
+            "en": "Dry using tumble motion only, with no heat applied.",
+            "id": "Keringkan hanya dengan putaran, tanpa menggunakan panas."
+        },
+        "tip": {
+            "en": "Perfect for heat-sensitive fabrics that benefit from gentle air circulation.",
+            "id": "Sempurna untuk kain sensitif panas yang memerlukan sirkulasi udara lembut."
         },
         "rules": {
             "allow": {
@@ -476,6 +594,14 @@
             "en": "Do Not Tumble Dry",
             "id": "Jangan keringkan dengan mesin pengering"
         },
+        "description": {
+            "en": "This garment must not be dried in a tumble dryer.",
+            "id": "Pakaian ini tidak boleh dikeringkan dalam mesin pengering."
+        },
+        "tip": {
+            "en": "Air dry only to prevent shrinkage, stretching, or fabric damage.",
+            "id": "Hanya keringkan dengan udara untuk mencegah susut, melar, atau kerusakan kain."
+        },
         "rules": {
             "forbid": {
                 "en": [
@@ -493,6 +619,14 @@
         "label": {
             "en": "Line Dry",
             "id": "Jemur dengan tali"
+        },
+        "description": {
+            "en": "Hang damp garments from a line or bar, indoors or outdoors.",
+            "id": "Gantung pakaian lembap pada tali atau batang jemuran, di dalam atau luar ruangan."
+        },
+        "tip": {
+            "en": "Shake out garments before hanging to reduce wrinkles.",
+            "id": "Kibaskan pakaian sebelum digantung untuk mengurangi kusut."
         },
         "rules": {
             "allow": {
@@ -512,6 +646,14 @@
             "en": "Drip Dry",
             "id": "Keringkan dengan cara diteteskan"
         },
+        "description": {
+            "en": "Hang wet garment and allow water to drip off naturally.",
+            "id": "Gantung pakaian basah dan biarkan air menetes secara alami."
+        },
+        "tip": {
+            "en": "Do not wring or squeeze - let gravity do the work to avoid stretching.",
+            "id": "Jangan diperas atau dipijit - biarkan gravitasi bekerja untuk menghindari melar."
+        },
         "rules": {
             "allow": {
                 "en": [
@@ -529,6 +671,14 @@
         "label": {
             "en": "Dry Flat",
             "id": "Keringkan dengan cara diratakan"
+        },
+        "description": {
+            "en": "Lay the garment on a flat surface to dry.",
+            "id": "Letakkan pakaian di atas permukaan datar untuk dikeringkan."
+        },
+        "tip": {
+            "en": "Crucial for knitwear like sweaters to prevent stretching out of shape.",
+            "id": "Penting untuk pakaian rajut seperti sweter agar tidak melar."
         },
         "rules": {
             "allow": {
@@ -548,6 +698,14 @@
             "en": "Dry in Shade",
             "id": "Keringkan di tempat teduh"
         },
+        "description": {
+            "en": "Dry away from direct sunlight to prevent fading.",
+            "id": "Keringkan jauh dari sinar matahari langsung untuk mencegah pudar."
+        },
+        "tip": {
+            "en": "Essential for bright colors and dark fabrics that fade easily in UV light.",
+            "id": "Penting untuk warna cerah dan kain gelap yang mudah pudar di bawah sinar UV."
+        },
         "rules": {
             "condition": {
                 "en": [
@@ -566,6 +724,14 @@
             "en": "Hang Dry",
             "id": "Keringkan dengan cara digantung"
         },
+        "description": {
+            "en": "Hang garment on a hanger or line to air dry.",
+            "id": "Gantung pakaian pada gantungan atau tali jemuran untuk dikeringkan dengan udara."
+        },
+        "tip": {
+            "en": "Maintains garment shape better than flat drying for most items.",
+            "id": "Mempertahankan bentuk pakaian lebih baik daripada pengeringan datar untuk sebagian besar pakaian."
+        },
         "rules": {
             "allow": {
                 "en": [
@@ -583,6 +749,14 @@
         "label": {
             "en": "Iron, Low Heat",
             "id": "Setrika dengan panas rendah"
+        },
+        "description": {
+            "en": "Iron at a maximum temperature of 110\u00b0C.",
+            "id": "Setrika dengan suhu maksimum 110\u00b0C."
+        },
+        "tip": {
+            "en": "Usually required for synthetic fabrics like nylon and acetate.",
+            "id": "Biasanya diperlukan untuk kain sintetis seperti nilon dan asetat."
         },
         "rules": {
             "allow": {
@@ -610,6 +784,14 @@
             "en": "Iron, Medium Heat",
             "id": "Setrika dengan panas sedang"
         },
+        "description": {
+            "en": "Iron at a maximum temperature of 150\u00b0C.",
+            "id": "Setrika dengan suhu maksimum 150\u00b0C."
+        },
+        "tip": {
+            "en": "Perfect for wool and silk blends. Use a pressing cloth if unsure.",
+            "id": "Sempurna untuk wol dan kain sutra. Gunakan kain pelapis jika ragu."
+        },
         "rules": {
             "allow": {
                 "en": [
@@ -635,6 +817,14 @@
         "label": {
             "en": "Iron, High Heat",
             "id": "Setrika dengan panas tinggi"
+        },
+        "description": {
+            "en": "Iron at a maximum temperature of 200\u00b0C.",
+            "id": "Setrika dengan suhu maksimum 200\u00b0C."
+        },
+        "tip": {
+            "en": "Ideal for linen and heavy cotton. Steam helps with stubborn creases.",
+            "id": "Ideal untuk linen dan katun tebal. Uap membantu merapikan lipatan membandel."
         },
         "rules": {
             "allow": {
@@ -662,6 +852,14 @@
             "en": "Iron, No Steam",
             "id": "Setrika tanpa uap"
         },
+        "description": {
+            "en": "Iron with a dry iron only, steam can damage this fabric.",
+            "id": "Setrika hanya dengan setrika kering, uap dapat merusak kain ini."
+        },
+        "tip": {
+            "en": "Common for fabrics that water-spot or lose texture when exposed to moisture.",
+            "id": "Umum untuk kain yang mudah bernoda air atau kehilangan tekstur saat terkena kelembapan."
+        },
         "rules": {
             "allow": {
                 "en": [
@@ -688,6 +886,14 @@
             "en": "Do Not Iron",
             "id": "Jangan disetrika"
         },
+        "description": {
+            "en": "This garment must not be ironed under any circumstances.",
+            "id": "Pakaian ini tidak boleh disetrika dalam kondisi apa pun."
+        },
+        "tip": {
+            "en": "Heat can melt or permanently damage special finishes and synthetic fibers.",
+            "id": "Panas dapat melelehkan atau merusak permanen finishing khusus dan serat sintetis."
+        },
         "rules": {
             "forbid": {
                 "en": [
@@ -705,6 +911,14 @@
         "label": {
             "en": "Do Not Wring",
             "id": "Jangan diperas"
+        },
+        "description": {
+            "en": "Do not twist or wring out excess water from this garment.",
+            "id": "Jangan memuntir atau memeras air berlebih dari pakaian ini."
+        },
+        "tip": {
+            "en": "Gently press water out or roll in a towel to avoid stretching delicate fabrics.",
+            "id": "Tekan air dengan lembut atau gulung dalam handuk untuk menghindari melar pada kain halus."
         },
         "rules": {
             "forbid": {
@@ -724,6 +938,14 @@
             "en": "Dry Clean",
             "id": "Cuci kering (dry clean)"
         },
+        "description": {
+            "en": "Professional dry cleaning is allowed and recommended.",
+            "id": "Pencucian kering profesional diperbolehkan dan direkomendasikan."
+        },
+        "tip": {
+            "en": "Dry cleaning uses chemical solvents instead of water to clean delicate garments.",
+            "id": "Dry cleaning menggunakan pelarut kimia alih-alih air untuk membersihkan pakaian halus."
+        },
         "rules": {
             "allow": {
                 "en": [
@@ -741,6 +963,14 @@
         "label": {
             "en": "Dry Clean, Any Solvent",
             "id": "Cuci kering, semua jenis pelarut"
+        },
+        "description": {
+            "en": "Can be dry cleaned with any commercially available solvent.",
+            "id": "Dapat dicuci kering dengan pelarut komersial apa pun yang tersedia."
+        },
+        "tip": {
+            "en": "Gives dry cleaners full flexibility in choosing the best cleaning method.",
+            "id": "Memberikan fleksibilitas penuh kepada dry cleaner dalam memilih metode pembersihan terbaik."
         },
         "rules": {
             "allow": {
@@ -760,6 +990,14 @@
             "en": "Dry Clean, Hydrocarbon Only",
             "id": "Cuci kering, hanya pelarut hidrokarbon"
         },
+        "description": {
+            "en": "Must be dry cleaned using hydrocarbon solvents only.",
+            "id": "Harus dicuci kering hanya menggunakan pelarut hidrokarbon."
+        },
+        "tip": {
+            "en": "Hydrocarbon solvents are gentler and safer for sensitive fabrics and dyes.",
+            "id": "Pelarut hidrokarbon lebih lembut dan aman untuk kain sensitif dan pewarna."
+        },
         "rules": {
             "allow": {
                 "en": [
@@ -777,6 +1015,14 @@
         "label": {
             "en": "Dry Clean, PCE Only",
             "id": "Cuci kering, hanya pelarut PCE"
+        },
+        "description": {
+            "en": "Must be dry cleaned using tetrachloroethylene (PCE) solvent only.",
+            "id": "Harus dicuci kering hanya menggunakan pelarut tetrachloroethylene (PCE)."
+        },
+        "tip": {
+            "en": "PCE is a powerful solvent effective for removing tough stains and oils.",
+            "id": "PCE adalah pelarut kuat yang efektif untuk menghilangkan noda dan minyak membandel."
         },
         "rules": {
             "allow": {
@@ -796,6 +1042,14 @@
             "en": "Professional Wet Clean Only",
             "id": "Hanya cuci basah profesional"
         },
+        "description": {
+            "en": "Requires professional wet cleaning using specialized equipment and techniques.",
+            "id": "Memerlukan pencucian basah profesional menggunakan peralatan dan teknik khusus."
+        },
+        "tip": {
+            "en": "An eco-friendly alternative to dry cleaning using water-based methods.",
+            "id": "Alternatif ramah lingkungan untuk dry cleaning menggunakan metode berbasis air."
+        },
         "rules": {
             "allow": {
                 "en": [
@@ -813,6 +1067,14 @@
         "label": {
             "en": "Do Not Dry Clean",
             "id": "Jangan cuci kering"
+        },
+        "description": {
+            "en": "This garment must not be dry cleaned with chemical solvents.",
+            "id": "Pakaian ini tidak boleh dicuci kering dengan pelarut kimia."
+        },
+        "tip": {
+            "en": "Chemical solvents can damage certain fabrics - stick to water-based cleaning.",
+            "id": "Pelarut kimia dapat merusak kain tertentu - gunakan pencucian berbasis air saja."
         },
         "rules": {
             "forbid": {

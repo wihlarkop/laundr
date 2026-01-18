@@ -10,6 +10,8 @@ export interface LaundrySymbol {
     id: string;
     category: Category;
     label: { [lang: string]: string };
+    description?: { [lang: string]: string };
+    tip?: { [lang: string]: string };
     rules: Rules;
 }
 

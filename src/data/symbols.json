@@ -2,421 +2,827 @@
     {
         "id": "machine-wash-normal",
         "category": "wash",
-        "label": "Machine Wash, Normal",
+        "label": {
+            "en": "Machine Wash, Normal",
+            "id": "Cuci dengan mesin, normal"
+        },
         "rules": {
-            "allow": [
-                "Machine wash"
-            ],
-            "condition": [
-                "Normal cycle"
-            ]
+            "allow": {
+                "en": [
+                    "Machine wash"
+                ],
+                "id": [
+                    "Cuci dengan mesin"
+                ]
+            },
+            "condition": {
+                "en": [
+                    "Normal cycle"
+                ],
+                "id": [
+                    "Siklus normal"
+                ]
+            }
         }
     },
     {
         "id": "machine-wash-cold",
         "category": "wash",
-        "label": "Machine Wash, Cold",
+        "label": {
+            "en": "Machine Wash, Cold",
+            "id": "Cuci dengan mesin, air dingin"
+        },
         "rules": {
-            "allow": [
-                "Machine wash"
-            ],
-            "condition": [
-                "Water temperature not exceeding 30°C (85°F)"
-            ]
+            "allow": {
+                "en": [
+                    "Machine wash"
+                ],
+                "id": [
+                    "Cuci dengan mesin"
+                ]
+            },
+            "condition": {
+                "en": [
+                    "Water temperature not exceeding 30°C (85°F)"
+                ],
+                "id": [
+                    "Suhu air tidak melebihi 30°C (85°F)"
+                ]
+            }
         }
     },
     {
         "id": "machine-wash-warm",
         "category": "wash",
-        "label": "Machine Wash, Warm",
+        "label": {
+            "en": "Machine Wash, Warm",
+            "id": "Cuci dengan mesin, air hangat"
+        },
         "rules": {
-            "allow": [
-                "Machine wash"
-            ],
-            "condition": [
-                "Water temperature not exceeding 40°C (105°F)"
-            ]
+            "allow": {
+                "en": [
+                    "Machine wash"
+                ],
+                "id": [
+                    "Cuci dengan mesin"
+                ]
+            },
+            "condition": {
+                "en": [
+                    "Water temperature not exceeding 40°C (105°F)"
+                ],
+                "id": [
+                    "Suhu air tidak melebihi 40°C (105°F)"
+                ]
+            }
         }
     },
     {
         "id": "machine-wash-hot",
         "category": "wash",
-        "label": "Machine Wash, Hot",
+        "label": {
+            "en": "Machine Wash, Hot",
+            "id": "Cuci dengan mesin, air panas"
+        },
         "rules": {
-            "allow": [
-                "Machine wash"
-            ],
-            "condition": [
-                "Water temperature not exceeding 50°C (120°F)"
-            ]
+            "allow": {
+                "en": [
+                    "Machine wash"
+                ],
+                "id": [
+                    "Cuci dengan mesin"
+                ]
+            },
+            "condition": {
+                "en": [
+                    "Water temperature not exceeding 50°C (120°F)"
+                ],
+                "id": [
+                    "Suhu air tidak melebihi 50°C (120°F)"
+                ]
+            }
         }
     },
     {
         "id": "machine-wash-very-hot",
         "category": "wash",
-        "label": "Machine Wash, Very Hot",
+        "label": {
+            "en": "Machine Wash, Very Hot",
+            "id": "Cuci dengan mesin, air sangat panas"
+        },
         "rules": {
-            "allow": [
-                "Machine wash"
-            ],
-            "condition": [
-                "Water temperature not exceeding 60°C (140°F)"
-            ]
+            "allow": {
+                "en": [
+                    "Machine wash"
+                ],
+                "id": [
+                    "Cuci dengan mesin"
+                ]
+            },
+            "condition": {
+                "en": [
+                    "Water temperature not exceeding 60°C (140°F)"
+                ],
+                "id": [
+                    "Suhu air tidak melebihi 60°C (140°F)"
+                ]
+            }
         }
     },
     {
         "id": "machine-wash-delicate",
         "category": "wash",
-        "label": "Machine Wash, Delicate",
+        "label": {
+            "en": "Machine Wash, Delicate",
+            "id": "Cuci dengan mesin, mode lembut"
+        },
         "rules": {
-            "allow": [
-                "Machine wash"
-            ],
-            "condition": [
-                "Gentle or delicate cycle"
-            ]
+            "allow": {
+                "en": [
+                    "Machine wash"
+                ],
+                "id": [
+                    "Cuci dengan mesin"
+                ]
+            },
+            "condition": {
+                "en": [
+                    "Gentle or delicate cycle"
+                ],
+                "id": [
+                    "Siklus lembut atau halus"
+                ]
+            }
         }
     },
     {
         "id": "machine-wash-permanent-press",
         "category": "wash",
-        "label": "Machine Wash, Permanent Press",
+        "label": {
+            "en": "Machine Wash, Permanent Press",
+            "id": "Cuci dengan mesin, mode permanent press"
+        },
         "rules": {
-            "allow": [
-                "Machine wash"
-            ],
-            "condition": [
-                "Permanent press cycle"
-            ]
+            "allow": {
+                "en": [
+                    "Machine wash"
+                ],
+                "id": [
+                    "Cuci dengan mesin"
+                ]
+            },
+            "condition": {
+                "en": [
+                    "Permanent press cycle"
+                ],
+                "id": [
+                    "Siklus permanent press"
+                ]
+            }
         }
     },
     {
         "id": "hand-wash",
         "category": "wash",
-        "label": "Hand Wash",
+        "label": {
+            "en": "Hand Wash",
+            "id": "Cuci dengan tangan"
+        },
         "rules": {
-            "allow": [
-                "Hand wash"
-            ],
-            "forbid": [
-                "Machine wash"
-            ]
+            "allow": {
+                "en": [
+                    "Hand wash"
+                ],
+                "id": [
+                    "Cuci dengan tangan"
+                ]
+            },
+            "forbid": {
+                "en": [
+                    "Machine wash"
+                ],
+                "id": [
+                    "Cuci dengan mesin"
+                ]
+            }
         }
     },
     {
         "id": "do-not-machine-wash",
         "category": "wash",
-        "label": "Do Not Machine Wash",
+        "label": {
+            "en": "Do Not Machine Wash",
+            "id": "Jangan cuci dengan mesin"
+        },
         "rules": {
-            "forbid": [
-                "Machine wash"
-            ]
+            "forbid": {
+                "en": [
+                    "Machine wash"
+                ],
+                "id": [
+                    "Cuci dengan mesin"
+                ]
+            }
         }
     },
     {
         "id": "bleach",
         "category": "bleach",
-        "label": "Any Bleach Allowed",
+        "label": {
+            "en": "Any Bleach Allowed",
+            "id": "Boleh menggunakan pemutih"
+        },
         "rules": {
-            "allow": [
-                "Bleaching with any agent"
-            ]
+            "allow": {
+                "en": [
+                    "Bleaching with any agent"
+                ],
+                "id": [
+                    "Pemutihan dengan bahan apa pun"
+                ]
+            }
         }
     },
     {
         "id": "bleach-non-chlorine",
         "category": "bleach",
-        "label": "Non-Chlorine Bleach Only",
+        "label": {
+            "en": "Non-Chlorine Bleach Only",
+            "id": "Hanya pemutih tanpa klorin"
+        },
         "rules": {
-            "allow": [
-                "Oxygen/non-chlorine bleach"
-            ],
-            "forbid": [
-                "Chlorine bleach"
-            ]
+            "allow": {
+                "en": [
+                    "Oxygen/non-chlorine bleach"
+                ],
+                "id": [
+                    "Pemutih oksigen atau tanpa klorin"
+                ]
+            },
+            "forbid": {
+                "en": [
+                    "Chlorine bleach"
+                ],
+                "id": [
+                    "Pemutih berbahan klorin"
+                ]
+            }
         }
     },
     {
         "id": "do-not-bleach",
         "category": "bleach",
-        "label": "Do Not Bleach",
+        "label": {
+            "en": "Do Not Bleach",
+            "id": "Jangan gunakan pemutih"
+        },
         "rules": {
-            "forbid": [
-                "Bleaching"
-            ]
+            "forbid": {
+                "en": [
+                    "Bleaching"
+                ],
+                "id": [
+                    "Pemutihan"
+                ]
+            }
         }
     },
     {
         "id": "tumble-dry-normal",
         "category": "dry",
-        "label": "Tumble Dry, Normal",
+        "label": {
+            "en": "Tumble Dry, Normal",
+            "id": "Keringkan dengan mesin pengering, normal"
+        },
         "rules": {
-            "allow": [
-                "Tumble drying"
-            ],
-            "condition": [
-                "Normal heat"
-            ]
+            "allow": {
+                "en": [
+                    "Tumble drying"
+                ],
+                "id": [
+                    "Pengeringan dengan mesin pengering"
+                ]
+            },
+            "condition": {
+                "en": [
+                    "Normal heat"
+                ],
+                "id": [
+                    "Panas normal"
+                ]
+            }
         }
     },
     {
         "id": "tumble-dry-low",
         "category": "dry",
-        "label": "Tumble Dry, Low",
+        "label": {
+            "en": "Tumble Dry, Low Heat",
+            "id": "Keringkan dengan mesin pengering, panas rendah"
+        },
         "rules": {
-            "allow": [
-                "Tumble drying"
-            ],
-            "condition": [
-                "Low heat"
-            ]
+            "allow": {
+                "en": [
+                    "Tumble drying"
+                ],
+                "id": [
+                    "Pengeringan dengan mesin pengering"
+                ]
+            },
+            "condition": {
+                "en": [
+                    "Low heat"
+                ],
+                "id": [
+                    "Panas rendah"
+                ]
+            }
         }
     },
     {
         "id": "tumble-dry-medium",
         "category": "dry",
-        "label": "Tumble Dry, Medium",
+        "label": {
+            "en": "Tumble Dry, Medium Heat",
+            "id": "Keringkan dengan mesin pengering, panas sedang"
+        },
         "rules": {
-            "allow": [
-                "Tumble drying"
-            ],
-            "condition": [
-                "Medium heat"
-            ]
+            "allow": {
+                "en": [
+                    "Tumble drying"
+                ],
+                "id": [
+                    "Pengeringan dengan mesin pengering"
+                ]
+            },
+            "condition": {
+                "en": [
+                    "Medium heat"
+                ],
+                "id": [
+                    "Panas sedang"
+                ]
+            }
         }
     },
     {
         "id": "tumble-dry-high",
         "category": "dry",
-        "label": "Tumble Dry, High",
+        "label": {
+            "en": "Tumble Dry, High Heat",
+            "id": "Keringkan dengan mesin pengering, panas tinggi"
+        },
         "rules": {
-            "allow": [
-                "Tumble drying"
-            ],
-            "condition": [
-                "High heat"
-            ]
+            "allow": {
+                "en": [
+                    "Tumble drying"
+                ],
+                "id": [
+                    "Pengeringan dengan mesin pengering"
+                ]
+            },
+            "condition": {
+                "en": [
+                    "High heat"
+                ],
+                "id": [
+                    "Panas tinggi"
+                ]
+            }
         }
     },
     {
         "id": "tumble-dry-delicate",
         "category": "dry",
-        "label": "Tumble Dry, Delicate",
+        "label": {
+            "en": "Tumble Dry, Delicate",
+            "id": "Keringkan dengan mesin pengering, mode lembut"
+        },
         "rules": {
-            "allow": [
-                "Tumble drying"
-            ],
-            "condition": [
-                "Gentle/delicate cycle"
-            ]
+            "allow": {
+                "en": [
+                    "Tumble drying"
+                ],
+                "id": [
+                    "Pengeringan dengan mesin pengering"
+                ]
+            },
+            "condition": {
+                "en": [
+                    "Gentle/delicate cycle"
+                ],
+                "id": [
+                    "Siklus lembut atau halus"
+                ]
+            }
         }
     },
     {
         "id": "tumble-dry-permanent-press",
         "category": "dry",
-        "label": "Tumble Dry, Permanent Press",
+        "label": {
+            "en": "Tumble Dry, Permanent Press",
+            "id": "Keringkan dengan mesin pengering, mode permanent press"
+        },
         "rules": {
-            "allow": [
-                "Tumble drying"
-            ],
-            "condition": [
-                "Permanent press cycle"
-            ]
+            "allow": {
+                "en": [
+                    "Tumble drying"
+                ],
+                "id": [
+                    "Pengeringan dengan mesin pengering"
+                ]
+            },
+            "condition": {
+                "en": [
+                    "Permanent press cycle"
+                ],
+                "id": [
+                    "Siklus permanent press"
+                ]
+            }
         }
     },
     {
         "id": "tumble-dry-no-heat",
         "category": "dry",
-        "label": "Tumble Dry, No Heat",
+        "label": {
+            "en": "Tumble Dry, No Heat",
+            "id": "Keringkan dengan mesin pengering, tanpa panas"
+        },
         "rules": {
-            "allow": [
-                "Tumble drying"
-            ],
-            "condition": [
-                "No heat"
-            ]
+            "allow": {
+                "en": [
+                    "Tumble drying"
+                ],
+                "id": [
+                    "Pengeringan dengan mesin pengering"
+                ]
+            },
+            "condition": {
+                "en": [
+                    "No heat (air dry)"
+                ],
+                "id": [
+                    "Tanpa panas (pengeringan dengan udara)"
+                ]
+            }
         }
     },
     {
         "id": "do-not-tumble-dry",
         "category": "dry",
-        "label": "Do Not Tumble Dry",
+        "label": {
+            "en": "Do Not Tumble Dry",
+            "id": "Jangan keringkan dengan mesin pengering"
+        },
         "rules": {
-            "forbid": [
-                "Tumble drying"
-            ]
+            "forbid": {
+                "en": [
+                    "Tumble drying"
+                ],
+                "id": [
+                    "Pengeringan dengan mesin pengering"
+                ]
+            }
+        }
+    },
+    {
+        "id": "line-dry",
+        "category": "dry",
+        "label": {
+            "en": "Line Dry",
+            "id": "Jemur dengan tali"
+        },
+        "rules": {
+            "allow": {
+                "en": [
+                    "Line drying"
+                ],
+                "id": [
+                    "Pengeringan dengan menjemur"
+                ]
+            }
         }
     },
     {
         "id": "drip-dry",
         "category": "dry",
-        "label": "Drip Dry",
+        "label": {
+            "en": "Drip Dry",
+            "id": "Keringkan dengan cara diteteskan"
+        },
         "rules": {
-            "allow": [
-                "Drip drying"
-            ]
+            "allow": {
+                "en": [
+                    "Drip drying"
+                ],
+                "id": [
+                    "Pengeringan dengan diteteskan"
+                ]
+            }
         }
     },
     {
         "id": "dry-flat",
         "category": "dry",
-        "label": "Dry Flat",
+        "label": {
+            "en": "Dry Flat",
+            "id": "Keringkan dengan cara diratakan"
+        },
         "rules": {
-            "allow": [
-                "Drying flat"
-            ]
+            "allow": {
+                "en": [
+                    "Drying flat"
+                ],
+                "id": [
+                    "Pengeringan dengan diratakan"
+                ]
+            }
         }
     },
     {
         "id": "dry-in-shade",
         "category": "dry",
-        "label": "Dry in Shade",
+        "label": {
+            "en": "Dry in Shade",
+            "id": "Keringkan di tempat teduh"
+        },
         "rules": {
-            "condition": [
-                "Dry in shade"
-            ]
+            "condition": {
+                "en": [
+                    "Dry in shade"
+                ],
+                "id": [
+                    "Keringkan di tempat teduh, tidak terkena sinar matahari langsung"
+                ]
+            }
         }
     },
     {
         "id": "hang-dry",
         "category": "dry",
-        "label": "Hang Dry",
+        "label": {
+            "en": "Hang Dry",
+            "id": "Keringkan dengan cara digantung"
+        },
         "rules": {
-            "allow": [
-                "Line drying"
-            ]
+            "allow": {
+                "en": [
+                    "Line drying"
+                ],
+                "id": [
+                    "Pengeringan dengan digantung atau dijemur"
+                ]
+            }
         }
     },
     {
         "id": "iron-low",
         "category": "iron",
-        "label": "Iron, Low Heat",
+        "label": {
+            "en": "Iron, Low Heat",
+            "id": "Setrika dengan panas rendah"
+        },
         "rules": {
-            "allow": [
-                "Ironing"
-            ],
-            "condition": [
-                "Maximum temperature of 110°C (230°F)"
-            ]
+            "allow": {
+                "en": [
+                    "Ironing"
+                ],
+                "id": [
+                    "Penyetrikaan"
+                ]
+            },
+            "condition": {
+                "en": [
+                    "Maximum temperature of 110°C (230°F)"
+                ],
+                "id": [
+                    "Suhu maksimum 110°C (230°F)"
+                ]
+            }
         }
     },
     {
         "id": "iron-medium",
         "category": "iron",
-        "label": "Iron, Medium Heat",
+        "label": {
+            "en": "Iron, Medium Heat",
+            "id": "Setrika dengan panas sedang"
+        },
         "rules": {
-            "allow": [
-                "Ironing"
-            ],
-            "condition": [
-                "Maximum temperature of 150°C (300°F)"
-            ]
+            "allow": {
+                "en": [
+                    "Ironing"
+                ],
+                "id": [
+                    "Penyetrikaan"
+                ]
+            },
+            "condition": {
+                "en": [
+                    "Maximum temperature of 150°C (300°F)"
+                ],
+                "id": [
+                    "Suhu maksimum 150°C (300°F)"
+                ]
+            }
         }
     },
     {
         "id": "iron-high",
         "category": "iron",
-        "label": "Iron, High Heat",
+        "label": {
+            "en": "Iron, High Heat",
+            "id": "Setrika dengan panas tinggi"
+        },
         "rules": {
-            "allow": [
-                "Ironing"
-            ],
-            "condition": [
-                "Maximum temperature of 200°C (390°F)"
-            ]
+            "allow": {
+                "en": [
+                    "Ironing"
+                ],
+                "id": [
+                    "Penyetrikaan"
+                ]
+            },
+            "condition": {
+                "en": [
+                    "Maximum temperature of 200°C (390°F)"
+                ],
+                "id": [
+                    "Suhu maksimum 200°C (390°F)"
+                ]
+            }
         }
     },
     {
         "id": "iron-no-steam",
         "category": "iron",
-        "label": "Iron, No Steam",
+        "label": {
+            "en": "Iron, No Steam",
+            "id": "Setrika tanpa uap"
+        },
         "rules": {
-            "allow": [
-                "Ironing"
-            ],
-            "forbid": [
-                "Steam ironing"
-            ]
+            "allow": {
+                "en": [
+                    "Ironing"
+                ],
+                "id": [
+                    "Penyetrikaan"
+                ]
+            },
+            "forbid": {
+                "en": [
+                    "Steam ironing"
+                ],
+                "id": [
+                    "Penyetrikaan dengan uap"
+                ]
+            }
         }
     },
     {
         "id": "do-not-iron",
         "category": "iron",
-        "label": "Do Not Iron",
+        "label": {
+            "en": "Do Not Iron",
+            "id": "Jangan disetrika"
+        },
         "rules": {
-            "forbid": [
-                "Ironing"
-            ]
+            "forbid": {
+                "en": [
+                    "Ironing"
+                ],
+                "id": [
+                    "Penyetrikaan"
+                ]
+            }
         }
     },
     {
         "id": "do-not-wring",
         "category": "dry",
-        "label": "Do Not Wring",
+        "label": {
+            "en": "Do Not Wring",
+            "id": "Jangan diperas"
+        },
         "rules": {
-            "forbid": [
-                "Wringing"
-            ]
+            "forbid": {
+                "en": [
+                    "Wringing"
+                ],
+                "id": [
+                    "Pemerasan dengan tangan"
+                ]
+            }
         }
     },
     {
         "id": "dry-clean",
         "category": "dry_clean",
-        "label": "Dry Clean",
+        "label": {
+            "en": "Dry Clean",
+            "id": "Cuci kering (dry clean)"
+        },
         "rules": {
-            "allow": [
-                "Dry cleaning"
-            ]
+            "allow": {
+                "en": [
+                    "Dry cleaning"
+                ],
+                "id": [
+                    "Pencucian kering"
+                ]
+            }
         }
     },
     {
         "id": "dry-clean-any-solvent",
         "category": "dry_clean",
-        "label": "Dry Clean, Any Solvent",
+        "label": {
+            "en": "Dry Clean, Any Solvent",
+            "id": "Cuci kering, semua jenis pelarut"
+        },
         "rules": {
-            "allow": [
-                "Dry cleaning with any solvent"
-            ]
+            "allow": {
+                "en": [
+                    "Dry cleaning with any solvent"
+                ],
+                "id": [
+                    "Pencucian kering dengan pelarut apa pun"
+                ]
+            }
         }
     },
     {
         "id": "dry-clean-hydrocarbon-solvent-only",
         "category": "dry_clean",
-        "label": "Dry Clean, Hydrocarbon Only",
+        "label": {
+            "en": "Dry Clean, Hydrocarbon Only",
+            "id": "Cuci kering, hanya pelarut hidrokarbon"
+        },
         "rules": {
-            "allow": [
-                "Dry cleaning in hydrocarbon solvents only"
-            ]
+            "allow": {
+                "en": [
+                    "Dry cleaning in hydrocarbon solvents only"
+                ],
+                "id": [
+                    "Pencucian kering hanya dengan pelarut hidrokarbon"
+                ]
+            }
         }
     },
     {
         "id": "dry-clean-tetrachloroethylene-solvent-only",
         "category": "dry_clean",
-        "label": "Dry Clean, PCE Only",
+        "label": {
+            "en": "Dry Clean, PCE Only",
+            "id": "Cuci kering, hanya pelarut PCE"
+        },
         "rules": {
-            "allow": [
-                "Dry cleaning in tetrachloroethylene (PCE) only"
-            ]
+            "allow": {
+                "en": [
+                    "Dry cleaning in tetrachloroethylene (PCE) only"
+                ],
+                "id": [
+                    "Pencucian kering hanya dengan tetrachloroethylene (PCE)"
+                ]
+            }
         }
     },
     {
         "id": "professional-wet-cleaning-only",
         "category": "dry_clean",
-        "label": "Professional Wet Clean Only",
+        "label": {
+            "en": "Professional Wet Clean Only",
+            "id": "Hanya cuci basah profesional"
+        },
         "rules": {
-            "allow": [
-                "Professional wet cleaning"
-            ]
+            "allow": {
+                "en": [
+                    "Professional wet cleaning"
+                ],
+                "id": [
+                    "Pencucian basah profesional"
+                ]
+            }
         }
     },
     {
         "id": "do-not-dry-clean",
         "category": "dry_clean",
-        "label": "Do Not Dry Clean",
+        "label": {
+            "en": "Do Not Dry Clean",
+            "id": "Jangan cuci kering"
+        },
         "rules": {
-            "forbid": [
-                "Dry cleaning"
-            ]
+            "forbid": {
+                "en": [
+                    "Dry cleaning"
+                ],
+                "id": [
+                    "Pencucian kering"
+                ]
+            }
         }
     }
 ]

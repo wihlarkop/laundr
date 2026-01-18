@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+@theme {
+  --spacing-safe: env(safe-area-inset-bottom);
+}
+
+@utility pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}

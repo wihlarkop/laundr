@@ -1,0 +1,530 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import symbolsData from "../../data/symbols.json";
+import type { LaundrySymbol } from "../../utils/engine";
+import { languages } from "../../i18n/ui";
+import { useTranslations } from "../../i18n/utils";
+
+export function getStaticPaths() {
+    return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const t = useTranslations(lang as any);
+const symbols = symbolsData as unknown as LaundrySymbol[];
+const categories = [...new Set(symbols.map((s) => s.category))];
+---
+
+<Layout title={`Laundr | ${t("hero.title")}`} lang={lang}>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 w-full">
+        <div class="mb-8 sm:mb-12">
+            <h2
+                class="text-2xl sm:text-3xl font-bold text-slate-900 mb-2 sm:mb-4"
+            >
+                {t("hero.title")}
+            </h2>
+            <p class="text-base sm:text-lg text-slate-600">
+                {t("hero.subtitle")}
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start relative">
+            <!-- Symbol Selection Side -->
+            <div class="lg:col-span-2 space-y-10">
+                <!-- Category Navigator (Sticky on Mobile) -->
+                <div
+                    class="sticky top-0 z-20 -mx-4 px-4 py-3 bg-slate-50/95 backdrop-blur-sm border-b border-slate-200 lg:hidden overflow-x-auto no-scrollbar flex gap-2"
+                >
+                    {
+                        categories.map((category) => (
+                            <button
+                                data-nav-target={`category-${category}`}
+                                class="nav-btn whitespace-nowrap px-4 py-1.5 bg-white border border-slate-200 rounded-full text-xs font-bold text-slate-500 hover:border-blue-500 hover:text-blue-600 transition-all uppercase tracking-wider"
+                            >
+                                {t(`nav.${category}` as any)}
+                            </button>
+                        ))
+                    }
+                </div>
+
+                {
+                    categories.map((category) => (
+                        <section
+                            id={`category-${category}`}
+                            class="scroll-mt-20"
+                        >
+                            <h3 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-6 border-b border-slate-100 pb-2">
+                                {t(`nav.${category}` as any)}
+                            </h3>
+                            <div class="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-3">
+                                {symbols
+                                    .filter((s) => s.category === category)
+                                    .map((symbol) => (
+                                        <button
+                                            data-symbol-id={symbol.id}
+                                            class="symbol-btn group flex flex-col items-center justify-center p-3 bg-white border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition-all relative overflow-hidden active:scale-95 touch-manipulation"
+                                            aria-label={
+                                                symbol.label[
+                                                    lang as "en" | "id"
+                                                ]
+                                            }
+                                        >
+                                            <img
+                                                src={`/symbols/${symbol.id}.svg`}
+                                                alt=""
+                                                class="w-10 h-10 mb-1.5 opacity-70 group-hover:opacity-100 transition-opacity"
+                                            />
+                                            <span class="text-[9px] text-center font-medium text-slate-500 leading-tight group-hover:text-blue-600 transition-colors">
+                                                {
+                                                    symbol.label[
+                                                        lang as "en" | "id"
+                                                    ]
+                                                }
+                                            </span>
+                                            <div class="check-mark absolute top-1 right-1 hidden">
+                                                <div class="w-4 h-4 bg-blue-600 rounded-full flex items-center justify-center">
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20"
+                                                        fill="currentColor"
+                                                        class="w-3 h-3 text-white"
+                                                    >
+                                                        <path
+                                                            fill-rule="evenodd"
+                                                            d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                                                            clip-rule="evenodd"
+                                                        />
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </button>
+                                    ))}
+                            </div>
+                        </section>
+                    ))
+                }
+            </div>
+
+            <!-- Result Side (Sticky on Desktop, Bottom Sheet on Mobile) -->
+            <div class="lg:sticky lg:top-8 space-y-6">
+                <!-- Desktop Result Panel (Hidden on Mobile) -->
+                <div
+                    id="result-panel"
+                    class="hidden lg:flex bg-white border border-slate-200 rounded-2xl p-6 shadow-sm min-h-[400px] flex-col"
+                >
+                    <div
+                        id="results-empty"
+                        class="grow flex flex-col items-center justify-center text-center py-12"
+                    >
+                        <div
+                            class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mb-4 text-slate-400"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="w-8 h-8"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h4 class="text-sm font-semibold text-slate-900 mb-1">
+                            {t("results.empty.title")}
+                        </h4>
+                        <p class="text-xs text-slate-500">
+                            {t("results.empty.subtitle")}
+                        </p>
+                    </div>
+
+                    <div id="results-content" class="hidden space-y-6">
+                        <div>
+                            <h4
+                                class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3"
+                            >
+                                {t("results.summary")}
+                            </h4>
+                            <p
+                                id="summary-text"
+                                class="text-sm font-medium text-slate-900 leading-relaxed"
+                            >
+                            </p>
+                        </div>
+
+                        <div id="allow-list-container">
+                            <h4
+                                class="text-xs font-bold text-green-600 uppercase tracking-widest mb-3"
+                            >
+                                {t("results.allowed")}
+                            </h4>
+                            <ul id="allow-list" class="space-y-2"></ul>
+                        </div>
+
+                        <div id="forbid-list-container">
+                            <h4
+                                class="text-xs font-bold text-rose-600 uppercase tracking-widest mb-3"
+                            >
+                                {t("results.forbidden")}
+                            </h4>
+                            <ul id="forbid-list" class="space-y-2"></ul>
+                        </div>
+
+                        <div id="warning-list-container">
+                            <h4
+                                class="text-xs font-bold text-amber-600 uppercase tracking-widest mb-3"
+                            >
+                                {t("results.instructions")}
+                            </h4>
+                            <ul id="warning-list" class="space-y-2"></ul>
+                        </div>
+
+                        <button
+                            id="reset-btn"
+                            class="w-full mt-auto py-3 px-4 bg-slate-100 hover:bg-slate-200 text-slate-900 font-semibold rounded-xl transition-colors text-sm"
+                        >
+                            {t("results.reset")}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Floating Result Bar -->
+        <div
+            id="mobile-result-bar"
+            class="lg:hidden fixed bottom-6 left-4 right-4 z-40 translate-y-20 opacity-0 transition-all duration-300"
+        >
+            <button
+                id="open-sheet-btn"
+                class="w-full h-14 bg-blue-600 rounded-2xl shadow-xl shadow-blue-500/20 px-6 flex items-center justify-between text-white active:scale-95 transition-transform"
+            >
+                <div class="flex items-center gap-3">
+                    <div
+                        class="w-6 h-6 bg-white/20 rounded-lg flex items-center justify-center text-xs font-bold"
+                        id="mobile-count"
+                    >
+                        0
+                    </div>
+                    <span class="font-bold text-sm tracking-tight"
+                        >{t("results.mobile.count")}</span
+                    >
+                </div>
+                <span
+                    class="text-xs font-bold bg-white/20 px-3 py-1 rounded-full"
+                    >{t("results.mobile.view")}</span
+                >
+            </button>
+        </div>
+
+        <!-- Mobile Result Sheet Overlay -->
+        <div
+            id="mobile-sheet-overlay"
+            class="lg:hidden fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300"
+        >
+            <div
+                id="mobile-sheet"
+                class="absolute bottom-0 left-0 right-0 bg-white rounded-t-[32px] max-h-[90vh] overflow-y-auto no-scrollbar translate-y-full transition-transform duration-300 ease-out p-8"
+            >
+                <div class="w-12 h-1.5 bg-slate-200 rounded-full mx-auto mb-8">
+                </div>
+
+                <div class="space-y-8">
+                    <div>
+                        <h4
+                            class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3"
+                        >
+                            {t("results.summary")}
+                        </h4>
+                        <p
+                            id="summary-text-mobile"
+                            class="text-base font-semibold text-slate-900 leading-relaxed"
+                        >
+                        </p>
+                    </div>
+
+                    <div id="allow-list-container-mobile">
+                        <h4
+                            class="text-xs font-bold text-green-600 uppercase tracking-widest mb-3"
+                        >
+                            {t("results.allowed")}
+                        </h4>
+                        <ul id="allow-list-mobile" class="space-y-3"></ul>
+                    </div>
+
+                    <div id="forbid-list-container-mobile">
+                        <h4
+                            class="text-xs font-bold text-rose-600 uppercase tracking-widest mb-3"
+                        >
+                            {t("results.forbidden")}
+                        </h4>
+                        <ul id="forbid-list-mobile" class="space-y-3"></ul>
+                    </div>
+
+                    <div id="warning-list-container-mobile">
+                        <h4
+                            class="text-xs font-bold text-amber-600 uppercase tracking-widest mb-3"
+                        >
+                            {t("results.instructions")}
+                        </h4>
+                        <ul id="warning-list-mobile" class="space-y-3"></ul>
+                    </div>
+
+                    <div class="flex gap-3 pt-4">
+                        <button
+                            id="reset-btn-mobile"
+                            class="flex-1 py-4 bg-slate-100 text-slate-900 font-bold rounded-2xl text-sm"
+                        >
+                            {t("results.reset")}
+                        </button>
+                        <button
+                            id="close-sheet-btn"
+                            class="flex-1 py-4 bg-blue-600 text-white font-bold rounded-2xl text-sm shadow-lg shadow-blue-500/20"
+                        >
+                            {t("results.mobile.close")}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        import { evaluateSymbols } from "../../utils/engine";
+        import type { LaundrySymbol } from "../../utils/engine";
+        import symbolsData from "../../data/symbols.json";
+
+        const buttons = document.querySelectorAll(".symbol-btn");
+        const resultEmpty = document.getElementById("results-empty");
+        const resultContent = document.getElementById("results-content");
+        const summaryText = document.getElementById("summary-text");
+        const allowList = document.getElementById("allow-list");
+        const forbidList = document.getElementById("forbid-list");
+        const warningList = document.getElementById("warning-list");
+        const resetBtn = document.getElementById("reset-btn");
+
+        // Mobile Elements
+        const mobileBar = document.getElementById("mobile-result-bar");
+        const mobileCount = document.getElementById("mobile-count");
+        const openSheetBtn = document.getElementById("open-sheet-btn");
+        const closeSheetBtn = document.getElementById("close-sheet-btn");
+        const mobileSheetOverlay = document.getElementById(
+            "mobile-sheet-overlay",
+        );
+        const mobileSheet = document.getElementById("mobile-sheet");
+        const summaryTextMobile = document.getElementById(
+            "summary-text-mobile",
+        );
+        const allowListMobile = document.getElementById("allow-list-mobile");
+        const forbidListMobile = document.getElementById("forbid-list-mobile");
+        const warningListMobile = document.getElementById(
+            "warning-list-mobile",
+        );
+        const resetBtnMobile = document.getElementById("reset-btn-mobile");
+
+        // Detect language from URL
+        const lang = window.location.pathname.split("/")[1] || "en";
+
+        let selectedIds = new Set();
+
+        function updateUI() {
+            const selectedSymbols = (
+                symbolsData as unknown as LaundrySymbol[]
+            ).filter((s) => selectedIds.has(s.id));
+            const result = evaluateSymbols(selectedSymbols, lang);
+
+            // Update selection bar visibility
+            if (selectedIds.size > 0) {
+                mobileBar?.classList.remove("translate-y-20", "opacity-0");
+                if (mobileCount)
+                    mobileCount.innerText = selectedIds.size.toString();
+            } else {
+                mobileBar?.classList.add("translate-y-20", "opacity-0");
+                closeSheet();
+            }
+
+            if (selectedIds.size === 0) {
+                resultEmpty?.classList.remove("hidden");
+                resultContent?.classList.add("hidden");
+            } else {
+                resultEmpty?.classList.add("hidden");
+                resultContent?.classList.remove("hidden");
+
+                // Sync Content to both Desktop and Mobile
+                [summaryText, summaryTextMobile].forEach((el) => {
+                    if (el) {
+                        // Translate summary key
+                        const summaries: {
+                            [key: string]: { [l: string]: string };
+                        } = {
+                            "results.summary.default": {
+                                en: "Based on your selection:",
+                                id: "Berdasarkan pilihan Anda:",
+                            },
+                            "results.summary.caution": {
+                                en: "Caution: Some actions are forbidden.",
+                                id: "Perhatian: Beberapa tindakan dilarang.",
+                            },
+                            "results.summary.success": {
+                                en: "Care instructions generated successfully.",
+                                id: "Instruksi perawatan berhasil dibuat.",
+                            },
+                        };
+                        el.innerText =
+                            summaries[result.summary]?.[lang] || result.summary;
+                    }
+                });
+
+                const updateList = (
+                    desktopEl: HTMLElement | null,
+                    mobileEl: HTMLElement | null,
+                    containerId: string,
+                    mobileContainerId: string,
+                    color: string,
+                    data: string[],
+                ) => {
+                    const listHtml = data
+                        .map(
+                            (item) =>
+                                `<li class="flex items-start gap-3 text-sm font-medium text-slate-700 bg-${color}-50 px-4 py-3 rounded-xl border border-${color}-100/50 flex-1 min-w-[200px]"><span class="w-1.5 h-1.5 rounded-full bg-${color}-500 mt-1.5 shrink-0"></span>${item}</li>`,
+                        )
+                        .join("");
+
+                    if (desktopEl) desktopEl.innerHTML = listHtml;
+                    if (mobileEl) mobileEl.innerHTML = listHtml;
+
+                    [containerId, mobileContainerId].forEach((id) => {
+                        document
+                            .getElementById(id)
+                            ?.classList.toggle("hidden", data.length === 0);
+                    });
+                };
+
+                updateList(
+                    allowList,
+                    allowListMobile,
+                    "allow-list-container",
+                    "allow-list-container-mobile",
+                    "green",
+                    result.allow,
+                );
+                updateList(
+                    forbidList,
+                    forbidListMobile,
+                    "forbid-list-container",
+                    "forbid-list-container-mobile",
+                    "rose",
+                    result.forbid,
+                );
+                updateList(
+                    warningList,
+                    warningListMobile,
+                    "warning-list-container",
+                    "warning-list-container-mobile",
+                    "amber",
+                    result.warnings,
+                );
+            }
+
+            // Update button styles
+            buttons.forEach((btn) => {
+                const id = btn.getAttribute("data-symbol-id");
+                const isSelected = selectedIds.has(id);
+                const checkMark = btn.querySelector(".check-mark");
+
+                if (isSelected) {
+                    btn.classList.add(
+                        "border-blue-500",
+                        "bg-blue-50/50",
+                        "ring-2",
+                        "ring-blue-500/20",
+                    );
+                    checkMark?.classList.remove("hidden");
+                } else {
+                    btn.classList.remove(
+                        "border-blue-500",
+                        "bg-blue-50/50",
+                        "ring-2",
+                        "ring-blue-500/20",
+                    );
+                    checkMark?.classList.add("hidden");
+                }
+            });
+        }
+
+        // Bottom Sheet Actions
+        function openSheet() {
+            mobileSheetOverlay?.classList.remove("hidden");
+            setTimeout(() => {
+                mobileSheetOverlay?.classList.remove("opacity-0");
+                mobileSheet?.classList.remove("translate-y-full");
+            }, 10);
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeSheet() {
+            mobileSheetOverlay?.classList.add("opacity-0");
+            mobileSheet?.classList.add("translate-y-full");
+            setTimeout(() => {
+                mobileSheetOverlay?.classList.add("hidden");
+            }, 300);
+            document.body.style.overflow = "";
+        }
+
+        openSheetBtn?.addEventListener("click", openSheet);
+        closeSheetBtn?.addEventListener("click", closeSheet);
+        mobileSheetOverlay?.addEventListener("click", (e) => {
+            if (e.target === mobileSheetOverlay) closeSheet();
+        });
+
+        // Category Navigation Scroll
+        document.querySelectorAll(".nav-btn").forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const targetId = btn.getAttribute("data-nav-target");
+                const targetEl = document.getElementById(targetId || "");
+                if (targetEl) {
+                    targetEl.scrollIntoView({ behavior: "smooth" });
+                }
+            });
+        });
+
+        buttons.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const id = btn.getAttribute("data-symbol-id");
+                if (id) {
+                    if (selectedIds.has(id)) {
+                        selectedIds.delete(id);
+                    } else {
+                        selectedIds.add(id);
+                    }
+                    updateUI();
+                }
+            });
+        });
+
+        [resetBtn, resetBtnMobile].forEach((btn) => {
+            btn?.addEventListener("click", () => {
+                selectedIds.clear();
+                updateUI();
+            });
+        });
+    </script>
+</Layout>
+
+<style>
+    .symbol-btn {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+</style>

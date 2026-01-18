@@ -38,7 +38,7 @@ const categories = [...new Set(symbols.map((s) => s.category))];
 											aria-label={symbol.label}
 										>
 											<img
-												src={`${import.meta.env.BASE_URL}/symbols/${symbol.id}.svg`}
+												src={`/symbols/${symbol.id}.svg`}
 												alt=""
 												class="w-10 h-10 mb-2 opacity-70 group-hover:opacity-100 transition-opacity"
 											/>
@@ -160,6 +160,7 @@ const categories = [...new Set(symbols.map((s) => s.category))];
 
 	<script>
 		import { evaluateSymbols } from "../utils/engine";
+		import type { LaundrySymbol } from "../utils/engine";
 		import symbolsData from "../data/symbols.json";
 
 		const buttons = document.querySelectorAll(".symbol-btn");
@@ -174,9 +175,9 @@ const categories = [...new Set(symbols.map((s) => s.category))];
 		let selectedIds = new Set();
 
 		function updateUI() {
-			const selectedSymbols = symbolsData.filter((s) =>
-				selectedIds.has(s.id),
-			);
+			const selectedSymbols = (
+				symbolsData as unknown as LaundrySymbol[]
+			).filter((s) => selectedIds.has(s.id));
 			const result = evaluateSymbols(selectedSymbols);
 
 			if (selectedIds.size === 0) {

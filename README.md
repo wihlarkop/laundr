@@ -1,4 +1,4 @@
-# Laundry Care Symbol Decoder
+# Laundr
 ## Engineering Specification (Frontend-Only)
 
 [![Astro](https://img.shields.io/badge/Astro-BC52EE?style=flat&logo=astro&logoColor=white)](https://astro.build/)
@@ -175,14 +175,13 @@ type LaundrySymbol = {
 ## 10. Deployment Strategy
 
 ### Hosting
-- **Provider**: GitHub Pages
+- **Provider**: Cloudflare Pages
 - **URL Configuration**:
-  - User site: `https://username.github.io`
-  - Project site: `https://username.github.io/project-name/`
+  - Primary Domain: `https://laundr.wihlarkop.com`
 
 ### Build Output
 - Astro builds static files to `/dist`.
-- Contents of `/dist` are deployed automatically via GitHub Actions.
+- Contents of `/dist` are deployed automatically via Cloudflare Pages integration.
 
 ---
 
@@ -218,4 +217,4 @@ type LaundrySymbol = {
 - **No-Backend**: Purely frontend-only architecture.
 - **Performance**: Static, fast, and accessible (Astro).
 - **Compliance**: Open-source SVG icons with proper licensing.
-- **Cost**: Zero-cost hosting via GitHub Pages.
+- **Cost**: Zero-cost hosting via Cloudflare Pages.

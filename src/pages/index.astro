@@ -1,0 +1,285 @@
+---
+import Layout from "../layouts/Layout.astro";
+import symbolsData from "../data/symbols.json";
+import type { LaundrySymbol } from "../utils/engine";
+
+const symbols = symbolsData as unknown as LaundrySymbol[];
+const categories = [...new Set(symbols.map((s) => s.category))];
+---
+
+<Layout title="Laundr | Laundry Care Symbol Decoder">
+	<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+		<div class="mb-12">
+			<h2 class="text-3xl font-bold text-slate-900 mb-4">
+				Identify Your Garment's Care
+			</h2>
+			<p class="text-lg text-slate-600">
+				Select all icons found on your clothing label to get clear
+				instructions.
+			</p>
+		</div>
+
+		<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+			<!-- Symbol Selection Side -->
+			<div class="lg:col-span-2 space-y-10">
+				{
+					categories.map((category) => (
+						<section>
+							<h3 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-6 border-b border-slate-100 pb-2">
+								{category.replace("_", " ")}
+							</h3>
+							<div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
+								{symbols
+									.filter((s) => s.category === category)
+									.map((symbol) => (
+										<button
+											data-symbol-id={symbol.id}
+											class="symbol-btn group flex flex-col items-center justify-center p-4 bg-white border border-slate-200 rounded-xl hover:border-blue-500 hover:shadow-sm transition-all relative overflow-hidden active:scale-95"
+											aria-label={symbol.label}
+										>
+											<img
+												src={`/symbols/${symbol.id}.svg`}
+												alt=""
+												class="w-10 h-10 mb-2 opacity-70 group-hover:opacity-100 transition-opacity"
+											/>
+											<span class="text-[10px] text-center font-medium text-slate-500 leading-tight group-hover:text-blue-600 transition-colors">
+												{symbol.label}
+											</span>
+											<div class="check-mark absolute top-1 right-1 hidden">
+												<div class="w-4 h-4 bg-blue-600 rounded-full flex items-center justify-center">
+													<svg
+														xmlns="http://www.w3.org/2000/svg"
+														viewBox="0 0 20 20"
+														fill="currentColor"
+														class="w-3 h-3 text-white"
+													>
+														<path
+															fill-rule="evenodd"
+															d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+															clip-rule="evenodd"
+														/>
+													</svg>
+												</div>
+											</div>
+										</button>
+									))}
+							</div>
+						</section>
+					))
+				}
+			</div>
+
+			<!-- Result Side (Sticky) -->
+			<div class="lg:sticky lg:top-8 space-y-6">
+				<div
+					id="result-panel"
+					class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm min-h-[400px] flex flex-col"
+				>
+					<div
+						id="results-empty"
+						class="grow flex flex-col items-center justify-center text-center py-12"
+					>
+						<div
+							class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mb-4 text-slate-400"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke-width="1.5"
+								stroke="currentColor"
+								class="w-8 h-8"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"
+								></path>
+							</svg>
+						</div>
+						<h4 class="text-sm font-semibold text-slate-900 mb-1">
+							No symbols selected
+						</h4>
+						<p class="text-xs text-slate-500">
+							Select icons on the left to see care instructions.
+						</p>
+					</div>
+
+					<div id="results-content" class="hidden space-y-6">
+						<div>
+							<h4
+								class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3"
+							>
+								Summary
+							</h4>
+							<p
+								id="summary-text"
+								class="text-sm font-medium text-slate-900 leading-relaxed"
+							>
+							</p>
+						</div>
+
+						<div id="allow-list-container">
+							<h4
+								class="text-xs font-bold text-green-600 uppercase tracking-widest mb-3"
+							>
+								Allowed
+							</h4>
+							<ul id="allow-list" class="space-y-2"></ul>
+						</div>
+
+						<div id="forbid-list-container">
+							<h4
+								class="text-xs font-bold text-rose-600 uppercase tracking-widest mb-3"
+							>
+								Forbidden
+							</h4>
+							<ul id="forbid-list" class="space-y-2"></ul>
+						</div>
+
+						<div id="warning-list-container">
+							<h4
+								class="text-xs font-bold text-amber-600 uppercase tracking-widest mb-3"
+							>
+								Instructions
+							</h4>
+							<ul id="warning-list" class="space-y-2"></ul>
+						</div>
+
+						<button
+							id="reset-btn"
+							class="w-full mt-auto py-3 px-4 bg-slate-100 hover:bg-slate-200 text-slate-900 font-semibold rounded-xl transition-colors text-sm"
+						>
+							Reset Selection
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		import { evaluateSymbols } from "../utils/engine";
+		import symbolsData from "../data/symbols.json";
+
+		const buttons = document.querySelectorAll(".symbol-btn");
+		const resultEmpty = document.getElementById("results-empty");
+		const resultContent = document.getElementById("results-content");
+		const summaryText = document.getElementById("summary-text");
+		const allowList = document.getElementById("allow-list");
+		const forbidList = document.getElementById("forbid-list");
+		const warningList = document.getElementById("warning-list");
+		const resetBtn = document.getElementById("reset-btn");
+
+		let selectedIds = new Set();
+
+		function updateUI() {
+			const selectedSymbols = symbolsData.filter((s) =>
+				selectedIds.has(s.id),
+			);
+			const result = evaluateSymbols(selectedSymbols);
+
+			if (selectedIds.size === 0) {
+				resultEmpty?.classList.remove("hidden");
+				resultContent?.classList.add("hidden");
+			} else {
+				resultEmpty?.classList.add("hidden");
+				resultContent?.classList.remove("hidden");
+
+				if (summaryText) summaryText.innerText = result.summary;
+
+				if (allowList) {
+					allowList.innerHTML = result.allow
+						.map(
+							(a) =>
+								`<li class="flex items-center gap-2 text-sm text-slate-700 bg-green-50 px-3 py-2 rounded-lg"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>${a}</li>`,
+						)
+						.join("");
+					document
+						.getElementById("allow-list-container")
+						?.classList.toggle("hidden", result.allow.length === 0);
+				}
+
+				if (forbidList) {
+					forbidList.innerHTML = result.forbid
+						.map(
+							(f) =>
+								`<li class="flex items-center gap-2 text-sm text-slate-700 bg-rose-50 px-3 py-2 rounded-lg"><span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span>${f}</li>`,
+						)
+						.join("");
+					document
+						.getElementById("forbid-list-container")
+						?.classList.toggle(
+							"hidden",
+							result.forbid.length === 0,
+						);
+				}
+
+				if (warningList) {
+					warningList.innerHTML = result.warnings
+						.map(
+							(w) =>
+								`<li class="flex items-center gap-2 text-sm text-slate-700 bg-amber-50 px-3 py-2 rounded-lg"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>${w}</li>`,
+						)
+						.join("");
+					document
+						.getElementById("warning-list-container")
+						?.classList.toggle(
+							"hidden",
+							result.warnings.length === 0,
+						);
+				}
+			}
+
+			// Update button styles
+			buttons.forEach((btn) => {
+				const id = btn.getAttribute("data-symbol-id");
+				const isSelected = selectedIds.has(id);
+				const checkMark = btn.querySelector(".check-mark");
+
+				if (isSelected) {
+					btn.classList.add(
+						"border-blue-500",
+						"bg-blue-50/30",
+						"ring-2",
+						"ring-blue-500/20",
+					);
+					checkMark?.classList.remove("hidden");
+				} else {
+					btn.classList.remove(
+						"border-blue-500",
+						"bg-blue-50/30",
+						"ring-2",
+						"ring-blue-500/20",
+					);
+					checkMark?.classList.add("hidden");
+				}
+			});
+		}
+
+		buttons.forEach((btn) => {
+			btn.addEventListener("click", () => {
+				const id = btn.getAttribute("data-symbol-id");
+				if (id) {
+					if (selectedIds.has(id)) {
+						selectedIds.delete(id);
+					} else {
+						selectedIds.add(id);
+					}
+					updateUI();
+				}
+			});
+		});
+
+		resetBtn?.addEventListener("click", () => {
+			selectedIds.clear();
+			updateUI();
+		});
+	</script>
+</Layout>
+
+<style>
+	.symbol-btn {
+		-webkit-tap-highlight-color: transparent;
+	}
+</style>

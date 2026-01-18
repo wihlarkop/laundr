@@ -1,0 +1,422 @@
+[
+    {
+        "id": "machine-wash-normal",
+        "category": "wash",
+        "label": "Machine Wash, Normal",
+        "rules": {
+            "allow": [
+                "Machine wash"
+            ],
+            "condition": [
+                "Normal cycle"
+            ]
+        }
+    },
+    {
+        "id": "machine-wash-cold",
+        "category": "wash",
+        "label": "Machine Wash, Cold",
+        "rules": {
+            "allow": [
+                "Machine wash"
+            ],
+            "condition": [
+                "Water temperature not exceeding 30°C (85°F)"
+            ]
+        }
+    },
+    {
+        "id": "machine-wash-warm",
+        "category": "wash",
+        "label": "Machine Wash, Warm",
+        "rules": {
+            "allow": [
+                "Machine wash"
+            ],
+            "condition": [
+                "Water temperature not exceeding 40°C (105°F)"
+            ]
+        }
+    },
+    {
+        "id": "machine-wash-hot",
+        "category": "wash",
+        "label": "Machine Wash, Hot",
+        "rules": {
+            "allow": [
+                "Machine wash"
+            ],
+            "condition": [
+                "Water temperature not exceeding 50°C (120°F)"
+            ]
+        }
+    },
+    {
+        "id": "machine-wash-very-hot",
+        "category": "wash",
+        "label": "Machine Wash, Very Hot",
+        "rules": {
+            "allow": [
+                "Machine wash"
+            ],
+            "condition": [
+                "Water temperature not exceeding 60°C (140°F)"
+            ]
+        }
+    },
+    {
+        "id": "machine-wash-delicate",
+        "category": "wash",
+        "label": "Machine Wash, Delicate",
+        "rules": {
+            "allow": [
+                "Machine wash"
+            ],
+            "condition": [
+                "Gentle or delicate cycle"
+            ]
+        }
+    },
+    {
+        "id": "machine-wash-permanent-press",
+        "category": "wash",
+        "label": "Machine Wash, Permanent Press",
+        "rules": {
+            "allow": [
+                "Machine wash"
+            ],
+            "condition": [
+                "Permanent press cycle"
+            ]
+        }
+    },
+    {
+        "id": "hand-wash",
+        "category": "wash",
+        "label": "Hand Wash",
+        "rules": {
+            "allow": [
+                "Hand wash"
+            ],
+            "forbid": [
+                "Machine wash"
+            ]
+        }
+    },
+    {
+        "id": "do-not-machine-wash",
+        "category": "wash",
+        "label": "Do Not Machine Wash",
+        "rules": {
+            "forbid": [
+                "Machine wash"
+            ]
+        }
+    },
+    {
+        "id": "bleach",
+        "category": "bleach",
+        "label": "Any Bleach Allowed",
+        "rules": {
+            "allow": [
+                "Bleaching with any agent"
+            ]
+        }
+    },
+    {
+        "id": "bleach-non-chlorine",
+        "category": "bleach",
+        "label": "Non-Chlorine Bleach Only",
+        "rules": {
+            "allow": [
+                "Oxygen/non-chlorine bleach"
+            ],
+            "forbid": [
+                "Chlorine bleach"
+            ]
+        }
+    },
+    {
+        "id": "do-not-bleach",
+        "category": "bleach",
+        "label": "Do Not Bleach",
+        "rules": {
+            "forbid": [
+                "Bleaching"
+            ]
+        }
+    },
+    {
+        "id": "tumble-dry-normal",
+        "category": "dry",
+        "label": "Tumble Dry, Normal",
+        "rules": {
+            "allow": [
+                "Tumble drying"
+            ],
+            "condition": [
+                "Normal heat"
+            ]
+        }
+    },
+    {
+        "id": "tumble-dry-low",
+        "category": "dry",
+        "label": "Tumble Dry, Low",
+        "rules": {
+            "allow": [
+                "Tumble drying"
+            ],
+            "condition": [
+                "Low heat"
+            ]
+        }
+    },
+    {
+        "id": "tumble-dry-medium",
+        "category": "dry",
+        "label": "Tumble Dry, Medium",
+        "rules": {
+            "allow": [
+                "Tumble drying"
+            ],
+            "condition": [
+                "Medium heat"
+            ]
+        }
+    },
+    {
+        "id": "tumble-dry-high",
+        "category": "dry",
+        "label": "Tumble Dry, High",
+        "rules": {
+            "allow": [
+                "Tumble drying"
+            ],
+            "condition": [
+                "High heat"
+            ]
+        }
+    },
+    {
+        "id": "tumble-dry-delicate",
+        "category": "dry",
+        "label": "Tumble Dry, Delicate",
+        "rules": {
+            "allow": [
+                "Tumble drying"
+            ],
+            "condition": [
+                "Gentle/delicate cycle"
+            ]
+        }
+    },
+    {
+        "id": "tumble-dry-permanent-press",
+        "category": "dry",
+        "label": "Tumble Dry, Permanent Press",
+        "rules": {
+            "allow": [
+                "Tumble drying"
+            ],
+            "condition": [
+                "Permanent press cycle"
+            ]
+        }
+    },
+    {
+        "id": "tumble-dry-no-heat",
+        "category": "dry",
+        "label": "Tumble Dry, No Heat",
+        "rules": {
+            "allow": [
+                "Tumble drying"
+            ],
+            "condition": [
+                "No heat"
+            ]
+        }
+    },
+    {
+        "id": "do-not-tumble-dry",
+        "category": "dry",
+        "label": "Do Not Tumble Dry",
+        "rules": {
+            "forbid": [
+                "Tumble drying"
+            ]
+        }
+    },
+    {
+        "id": "drip-dry",
+        "category": "dry",
+        "label": "Drip Dry",
+        "rules": {
+            "allow": [
+                "Drip drying"
+            ]
+        }
+    },
+    {
+        "id": "dry-flat",
+        "category": "dry",
+        "label": "Dry Flat",
+        "rules": {
+            "allow": [
+                "Drying flat"
+            ]
+        }
+    },
+    {
+        "id": "dry-in-shade",
+        "category": "dry",
+        "label": "Dry in Shade",
+        "rules": {
+            "condition": [
+                "Dry in shade"
+            ]
+        }
+    },
+    {
+        "id": "hang-dry",
+        "category": "dry",
+        "label": "Hang Dry",
+        "rules": {
+            "allow": [
+                "Line drying"
+            ]
+        }
+    },
+    {
+        "id": "iron-low",
+        "category": "iron",
+        "label": "Iron, Low Heat",
+        "rules": {
+            "allow": [
+                "Ironing"
+            ],
+            "condition": [
+                "Maximum temperature of 110°C (230°F)"
+            ]
+        }
+    },
+    {
+        "id": "iron-medium",
+        "category": "iron",
+        "label": "Iron, Medium Heat",
+        "rules": {
+            "allow": [
+                "Ironing"
+            ],
+            "condition": [
+                "Maximum temperature of 150°C (300°F)"
+            ]
+        }
+    },
+    {
+        "id": "iron-high",
+        "category": "iron",
+        "label": "Iron, High Heat",
+        "rules": {
+            "allow": [
+                "Ironing"
+            ],
+            "condition": [
+                "Maximum temperature of 200°C (390°F)"
+            ]
+        }
+    },
+    {
+        "id": "iron-no-steam",
+        "category": "iron",
+        "label": "Iron, No Steam",
+        "rules": {
+            "allow": [
+                "Ironing"
+            ],
+            "forbid": [
+                "Steam ironing"
+            ]
+        }
+    },
+    {
+        "id": "do-not-iron",
+        "category": "iron",
+        "label": "Do Not Iron",
+        "rules": {
+            "forbid": [
+                "Ironing"
+            ]
+        }
+    },
+    {
+        "id": "do-not-wring",
+        "category": "dry",
+        "label": "Do Not Wring",
+        "rules": {
+            "forbid": [
+                "Wringing"
+            ]
+        }
+    },
+    {
+        "id": "dry-clean",
+        "category": "dry_clean",
+        "label": "Dry Clean",
+        "rules": {
+            "allow": [
+                "Dry cleaning"
+            ]
+        }
+    },
+    {
+        "id": "dry-clean-any-solvent",
+        "category": "dry_clean",
+        "label": "Dry Clean, Any Solvent",
+        "rules": {
+            "allow": [
+                "Dry cleaning with any solvent"
+            ]
+        }
+    },
+    {
+        "id": "dry-clean-hydrocarbon-solvent-only",
+        "category": "dry_clean",
+        "label": "Dry Clean, Hydrocarbon Only",
+        "rules": {
+            "allow": [
+                "Dry cleaning in hydrocarbon solvents only"
+            ]
+        }
+    },
+    {
+        "id": "dry-clean-tetrachloroethylene-solvent-only",
+        "category": "dry_clean",
+        "label": "Dry Clean, PCE Only",
+        "rules": {
+            "allow": [
+                "Dry cleaning in tetrachloroethylene (PCE) only"
+            ]
+        }
+    },
+    {
+        "id": "professional-wet-cleaning-only",
+        "category": "dry_clean",
+        "label": "Professional Wet Clean Only",
+        "rules": {
+            "allow": [
+                "Professional wet cleaning"
+            ]
+        }
+    },
+    {
+        "id": "do-not-dry-clean",
+        "category": "dry_clean",
+        "label": "Do Not Dry Clean",
+        "rules": {
+            "forbid": [
+                "Dry cleaning"
+            ]
+        }
+    }
+]

@@ -1,8 +1,11 @@
-#:schema https://raw.githubusercontent.com/cloudflare/workers-sdk/main/packages/wrangler/config-schema.json
+# The name of your application.
 name = "laundr"
-compatibility_date = "2024-04-03"
-compatibility_flags = ["nodejs_compat"]
 
-[pages_build_config]
-build_command = "pnpm run build"
+# This property is required for Cloudflare Pages to correctly parse the config file.
 pages_build_output_dir = "dist"
+
+# The date of the Workers runtime version to use.
+compatibility_date = "2026-01-01"
+
+# Enable Node.js compatibility mode.
+compatibility_flags = ["nodejs_compat"]

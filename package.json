@@ -22,5 +22,8 @@
       "esbuild",
       "sharp"
     ]
+  },
+  "devDependencies": {
+    "vitest": "^4.0.17"
   }
 }

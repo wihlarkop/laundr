@@ -9,8 +9,8 @@ export function getStaticPaths() {
     return Object.keys(languages).map((lang) => ({ params: { lang } }));
 }
 
-const { lang } = Astro.params;
-const t = useTranslations(lang as any);
+const { lang } = Astro.params as { lang: keyof typeof languages };
+const t = useTranslations(lang);
 const symbols = symbolsData as unknown as LaundrySymbol[];
 const categories = [...new Set(symbols.map((s) => s.category))];
 ---
@@ -264,7 +264,10 @@ const categories = [...new Set(symbols.map((s) => s.category))];
                                 "shadow-lg",
                                 "shadow-blue-500/20",
                             );
-                            b.classList.remove("text-slate-600", "hover:bg-slate-100");
+                            b.classList.remove(
+                                "text-slate-600",
+                                "hover:bg-slate-100",
+                            );
                         } else {
                             b.classList.remove(
                                 "bg-blue-600",
@@ -272,7 +275,10 @@ const categories = [...new Set(symbols.map((s) => s.category))];
                                 "shadow-lg",
                                 "shadow-blue-500/20",
                             );
-                            b.classList.add("text-slate-600", "hover:bg-slate-100");
+                            b.classList.add(
+                                "text-slate-600",
+                                "hover:bg-slate-100",
+                            );
                         }
                     } else {
                         // Mobile button

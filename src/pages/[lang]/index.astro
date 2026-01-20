@@ -9,8 +9,8 @@ export function getStaticPaths() {
     return Object.keys(languages).map((lang) => ({ params: { lang } }));
 }
 
-const { lang } = Astro.params;
-const t = useTranslations(lang as any);
+const { lang } = Astro.params as { lang: keyof typeof languages };
+const t = useTranslations(lang);
 const symbols = symbolsData as unknown as LaundrySymbol[];
 const categories = [...new Set(symbols.map((s) => s.category))];
 ---
@@ -78,13 +78,19 @@ const categories = [...new Set(symbols.map((s) => s.category))];
                                                         alt=""
                                                         width="40"
                                                         height="40"
-                                                        loading={currentIndex < 17 ? "eager" : "lazy"}
+                                                        loading={
+                                                            currentIndex < 17
+                                                                ? "eager"
+                                                                : "lazy"
+                                                        }
                                                         class="w-10 h-10 mb-1.5 opacity-70 group-hover:opacity-100 transition-opacity"
                                                     />
                                                     <span class="text-[9px] text-center font-medium text-slate-500 leading-tight group-hover:text-blue-600 transition-colors">
                                                         {
                                                             symbol.label[
-                                                                lang as "en" | "id"
+                                                                lang as
+                                                                    | "en"
+                                                                    | "id"
                                                             ]
                                                         }
                                                     </span>

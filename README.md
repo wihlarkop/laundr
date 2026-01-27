@@ -1,4 +1,4 @@
-# Laundr
+# Loadr
 ## Engineering Specification (Frontend-Only)
 
 [![Astro](https://img.shields.io/badge/Astro-BC52EE?style=flat&logo=astro&logoColor=white)](https://astro.build/)
@@ -177,7 +177,7 @@ type LaundrySymbol = {
 ### Hosting
 - **Provider**: Cloudflare Pages
 - **URL Configuration**:
-  - Primary Domain: `https://laundr.wihlarkop.com`
+  - Primary Domain: `https://loadr.wihlarkop.com`
 
 ### Build Output
 - Astro builds static files to `/dist`.

@@ -1,5 +1,5 @@
 # The name of your application.
-name = "laundr"
+name = "loadr"
 
 # This property is required for Cloudflare Pages to correctly parse the config file.
 pages_build_output_dir = "dist"
